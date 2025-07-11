@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Drug Predictor</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #1E3C72, #2A5298); /* Blue gradient */
+            color: #ffffff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 30px;
+            border-radius: 16px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+            width: 350px;
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #ffffff;
+        }
+
+        label {
+            font-weight: 500;
+            margin-top: 10px;
+            display: block;
+        }
+
+        input[type="number"],
+        select {
+            width: 100%;
+            padding: 10px;
+            margin-top: 4px;
+            margin-bottom: 15px;
+            border: none;
+            border-radius: 8px;
+            background-color: #ffffff;
+            color: #000000;
+        }
+
+        input[type="submit"] {
+            width: 100%;
+            padding: 12px;
+            background-color: #00bcd4;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: bold;
+            color: #fff;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #008c9e;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Drug Classification</h2>
+        <form method="POST" action="/predict">
+            <label for="age">Age:</label>
+            <input type="number" name="age" required>
+
+            <label for="sex">Sex:</label>
+            <select name="sex" required>
+                <option value="M">Male</option>
+                <option value="F">Female</option>
+            </select>
+
+            <label for="bp">Blood Pressure:</label>
+            <select name="bp" required>
+                <option value="LOW">LOW</option>
+                <option value="NORMAL">NORMAL</option>
+                <option value="HIGH">HIGH</option>
+            </select>
+
+            <label for="chol">Cholesterol:</label>
+            <select name="chol" required>
+                <option value="NORMAL">NORMAL</option>
+                <option value="HIGH">HIGH</option>
+            </select>
+
+            <label for="na_to_k">Na to K Ratio:</label>
+            <input type="number" step="0.01" name="na_to_k" required>
+
+            <input type="submit" value="Predict Drug">
+        </form>
+    </div>
+</body>
+</html>
